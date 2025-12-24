@@ -13,9 +13,27 @@
             *{
                 font-family: "Noto Serif", serif;
             }
+            #banner-img{
+                width: 100%;
+                background-image: 
+                url(./assets/hero-leaf1.png),
+                url(./assets/hero-leaf2.png),
+                linear-gradient(125.07deg,#CFF0DC);
+                /* position: bottom; */
+                background-position: left bottom, right bottom, center;
+                background-size: auto, auto, cover;
+                height: 100vh;
+               
+                background-repeat: no-repeat;
+            
+
+                
+
+
+            }
         </style>
     </head>
-    <body>
+    <body class="container mx-auto">
        <!-- Header -->
         <header class="flex justify-between p-4 bg-green-600 text-white">
         <div class="text-2xl ">Green Earth</div>
@@ -28,11 +46,22 @@
        </header>
 
        <!-- Banner Section -->
-        <section class="bg-gray-200 bg-center h-96 flex flex-col justify-center items-center text-center text-white">
-        <h1 class="text-5xl text-black font-bold mb-2">Plant a Tree, Grow a Future</h1>
-        <p class="text-lg mb-4 text-black">Join us in making the world a greener place.</p>
-        <button class="btn btn-warning">Get Started</button>
-    </section>
+      
+          <section id="banner-img">
+
+
+            <section class=" h-96 flex flex-col justify-center items-center text-center text-white">
+            <div>
+            <h1 class="text-5xl text-black font-bold mb-2">Plant a Tree, Grow a Future</h1>
+            <p class="text-lg mb-4 text-black">Join us in making the world a greener place.</p>
+            <button class="btn btn-warning">Get Started</button>
+            </div>
+            </section>
+
+          </section>
+          
+        
+    
         
     
 
