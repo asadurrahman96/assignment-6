@@ -5,20 +5,26 @@ const loadCategories = () => {
         .then((data) => displayCategories(data.categories))
 };
     const loadCategoryData = (id) =>{
+        manageSpinner(true);
         const url = `https://openapi.programming-hero.com/api/category/${id}`;
         fetch(url)
         .then(res=>res.json())
         .then(data=>displayTree(data.plants));
     };
-// "id": 1,
-// "image": "https://i.ibb.co.com/cSQdg7tf/mango-min.jpg",
-// "name": "Mango Tree",
-// "description": "A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green canopy offers shade, while its sweet fruits are rich in vitamins and minerals.",
-// "category": "Fruit Tree",
-// "price": 500
 
+    const manageSpinner =(status)=>{
+        console.log(status)
+        if(status==true){
+            document.getElementById("spinner").classList.remove("hidden");
+            document.getElementById("tree-container").classList.add("hidden");
+        }else{
+            document.getElementById("spinner").classList.add("hidden");
+            document.getElementById("tree-container").classList.remove("hidden");
+        }
+    }
 
     const displayTree=(trees)=>{
+            manageSpinner(false);
             const treeContainer = document.getElementById("tree-container");
             treeContainer.innerHTML = "";
             trees.forEach((tree)=>{
@@ -46,6 +52,7 @@ const loadCategories = () => {
       });
 
 
+
     };
 
     const displayCategories = (categories) => {
@@ -59,7 +66,7 @@ const loadCategories = () => {
         
         
         buttonContainer.innerHTML = `
-            <button onclick="loadCategoryData(${category.id})" class="btn btn-outline btn-success text-black  w-full mb-2  ">
+            <button onclick="loadCategoryData(${category.id})" class="btn btn-outline text-white bg-green-800 hover:bg-green-400  w-full mb-2  ">
                 ${category.category_name}
             </button>
         `;
@@ -67,6 +74,7 @@ const loadCategories = () => {
         container.appendChild(buttonContainer);
     });
 };
+manageSpinner();
 loadCategories();
 
 
